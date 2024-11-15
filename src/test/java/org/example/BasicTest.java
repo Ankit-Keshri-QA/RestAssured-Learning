@@ -16,7 +16,7 @@ public class BasicTest {
     public void verifyPostalCode() {
         given().baseUri("http://api.zippopotam.us").
                 when()
-                .get("/us/60685")
+                .get("/us/90210")
                 .then().assertThat().statusCode(200);
     }
 
