@@ -1,13 +1,14 @@
 package org.example;
 
+import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 
 public class SampleTest {
-
-
-    public static void main(String[] args) {
+    @Test
+    public  void verifyStatusCode() {
         given()
                 .baseUri("https://jsonplaceholder.typicode.com")
                 .when()
