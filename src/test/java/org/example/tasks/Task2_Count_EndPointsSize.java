@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Task2_EPAM_Count {
+public class Task2_Count_EndPointsSize {
 
     @Test
     public void verifyPostsCount() {
