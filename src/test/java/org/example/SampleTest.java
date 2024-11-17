@@ -1,13 +1,33 @@
 package org.example;
 
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.testng.annotations.Test;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.greaterThan;
 
 public class SampleTest {
 
+    @Test
+    public void testGetEmployeeDetails() {
+        RestAssured.baseURI = "https://dummy.restapiexample.com/api/v1";
 
-    public static void main(String[] args) {
+        given()
+                .header("Accept", ContentType.JSON)
+                .param("id", 123)
+                .when()
+                .get("/employee/{id}",1)
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("data.id", equalTo(123))
+                .body("data.employee_name", equalTo("John Doe"));
+    }
+
+    @Test
+    public void verifyJsonRepsonse() {
         given()
                 .baseUri("https://jsonplaceholder.typicode.com")
                 .when()
