@@ -61,7 +61,7 @@ public class SecondTest {
                 .then().assertThat().statusCode(404)
                 .statusLine(containsString("Not Found"));
 
-        
+
     }
 
     @Test
