@@ -9,8 +9,7 @@ import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 
 public class ThirdTest {
 
@@ -22,6 +21,7 @@ public class ThirdTest {
     private ResponseSpecification resp = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .expectContentType("application/json")
+            .expectResponseTime(lessThan(2000L))
             .build();
 
     @Test
