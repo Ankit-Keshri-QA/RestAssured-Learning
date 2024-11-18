@@ -1,12 +1,10 @@
-package org.example.tasks;
+package org.example.day1.tasks;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
 
 public class Task2_ResponseCodeValidation {
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.day1;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;

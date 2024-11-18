@@ -1,4 +1,4 @@
-package org.example;
+package org.example.day1;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

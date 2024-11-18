@@ -1,4 +1,4 @@
-package org.example.tasks.module2;
+package org.example.day1.tasks.module2;
 
 import org.testng.annotations.Test;
 

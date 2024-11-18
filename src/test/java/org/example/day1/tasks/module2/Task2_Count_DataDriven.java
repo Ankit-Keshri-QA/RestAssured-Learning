@@ -1,4 +1,4 @@
-package org.example.tasks;
+package org.example.day1.tasks;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
