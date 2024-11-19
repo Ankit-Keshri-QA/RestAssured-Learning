@@ -17,7 +17,7 @@ public class ThirdTest_RequestResponseSpecification {
             .setContentType("application/json")
             .setAccept("*/*").build();
 
-    private ResponseSpecification resp = new ResponseSpecBuilder()
+    private final ResponseSpecification resp = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .expectContentType("application/json")
             .expectResponseTime(lessThan(2000L))

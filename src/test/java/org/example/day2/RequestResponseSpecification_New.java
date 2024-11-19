@@ -39,7 +39,6 @@ public class RequestResponseSpecification_New {
 
         get("/us/90210")
                 .then()
-
                 .body("'post code'", equalTo("90210"))// Validate status code
                 .body("country", equalTo("United States")) // Validate country
                 .body("places[0].'place name'", equalTo("Beverly Hills")) // Validate place name
