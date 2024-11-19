@@ -2,7 +2,6 @@ package org.example.day2;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
@@ -11,7 +10,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class ThirdTest {
+public class ThirdTest_RequestResponseSpecification {
 
     private final RequestSpecification res = new RequestSpecBuilder()
             .setBaseUri("http://api.zippopotam.us")
