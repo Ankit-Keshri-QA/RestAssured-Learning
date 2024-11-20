@@ -1,10 +1,12 @@
-package org.example.day1.tasks;
+package org.example.day1.tasks.module2;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import static io.restassured.RestAssured.given;
 
 public class Task2_Count_DataDriven {
 
@@ -17,10 +19,10 @@ public class Task2_Count_DataDriven {
         RestAssured.baseURI = BASE_URI;
 
         // Send GET request and get the response
-        Response response = RestAssured
-                .given()
-                .when()
-                .get(endpoint);
+        Response response =
+                given()
+                        .when()
+                        .get(endpoint);
 
         // Verify the status code
         Assert.assertEquals(response.statusCode(), 200, "Status code should be 200");

@@ -28,7 +28,8 @@ public class BasicTest {
         // We can skip given() method and just use when and then methods to create the template
         when()
                 .get("http://api.zippopotam.us/us/30301")
-                .then().assertThat().statusCode(200);
+                .then()
+                .assertThat().statusCode(200);
     }
 
     @Test
