@@ -70,6 +70,4 @@ public class Serialization_Deserialization_Test {
         System.out.println("Pet status updated from pending to : " + pet_status);
     }
 
-
-
 }
