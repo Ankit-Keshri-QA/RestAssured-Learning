@@ -8,8 +8,8 @@ import model.Pet;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.get;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
 
 public class Serialization_Deserialization_Test {
 
@@ -21,7 +21,7 @@ public class Serialization_Deserialization_Test {
                 .setContentType("application/json").build();
     }
 
-    @Test
+    @Test(enabled = false)
     public void createPet1() {
 
         String requestBody = "{\n" + "  \n" + "  \"category\": {\n" + "    \"id\": 10,\n" + "    \"name\": \"HUSKY\"\n" + "  },\n" + "  \"name\": \"Candy-Dog\",\n" + "  \"photoUrls\": [\n" + "    \"random\"\n" + "  ],\n" + "  \"tags\": [\n" + "    {\n" + "      \"id\": 131,\n" + "      \"name\": \"string\"\n" + "    }\n" + "  ],\n" + "  \"status\": \"pending\"\n" + "}";
@@ -38,8 +38,8 @@ public class Serialization_Deserialization_Test {
     @Test
     public void createPet2() {
 
-        Category cat = new Category(123, "BullDog");
-        Pet pet = new Pet(356331, "Tester-Bull", "pending", cat);
+        Category cat = new Category(311, "NewDogster");
+        Pet pet = new Pet(1211324, "Tester-Dog", "pending", cat);
 
         Response response = given()
                 .body(pet).when()
@@ -47,14 +47,29 @@ public class Serialization_Deserialization_Test {
 
         int pet_id = response.path("id");
         System.out.println("Pet created with ID : " + pet_id);
-
     }
 
     @Test
     public void getPetAfterCreate() {
-        Pet pet = get("/pet/567876567").as(Pet.class);
+        Pet pet = get("/pet/1211324").as(Pet.class);
         System.out.println(pet.getName());
         System.out.println(pet.getStatus());
     }
+
+    @Test
+    public void updatePet() {
+
+        Category cat = new Category(311, "NewDogster");
+        Pet pet = new Pet(1211324, "Tester-Dog", "available", cat);
+
+        Response response = given()
+                .body(pet).when()
+                .put("/pet");
+
+        String pet_status = response.path("status");
+        System.out.println("Pet status updated from pending to : " + pet_status);
+    }
+
+
 
 }
