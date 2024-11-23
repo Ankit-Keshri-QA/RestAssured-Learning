@@ -23,6 +23,8 @@ public class ThirdTest_RequestResponseSpecification {
             .expectResponseTime(lessThan(2000L))
             .build();
 
+
+
     @Test
     public void verifyResponse() {
         given().spec(res)
